@@ -1257,12 +1257,12 @@ function ajax(url, options) {
     var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 
     // 发送请求
-    xhr.open(options.type, url, true);
+    oXhr.open(options.type, url, true);
     if (options.type == 'GET') {
-        xhr.send(null);
+        oXhr.send(null);
     } else {
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send(dataResult);
+        oXhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        oXhr.send(dataResult);
     }
 
     // readyState

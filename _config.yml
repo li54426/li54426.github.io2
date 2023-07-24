@@ -9,19 +9,17 @@
 title: HyG
 brief-intro: Front-end Dev Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gaohaoyang.github.io" # the base hostname & protocol for your site
+url: "http://gaohaoyang.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
-twitter_username:
+twitter_username: gaohaoyang126
 facebook_username: gaohaoyang.water
 github_username:  Gaohaoyang
 email: gaohaoyang126@126.com
 weibo_username: 3115521wh
 zhihu_username: gaohaoyang
-linkedIn_username: gaohaoyang
-dribbble_username:
 
 description_footer: 本站记录我前端之旅的沿途风景！
 
@@ -57,7 +55,4 @@ excerpt_separator: "\n\n\n\n"
 
 # paginate
 gems: [jekyll-paginate]
-paginate: 10
-
-plugins:
-  - jekyll-paginate
+paginate: 5
