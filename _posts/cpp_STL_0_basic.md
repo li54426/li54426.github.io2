@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "STL_basic"
+categories: Algorithm
+tags:  Algorithm
+author: li54426
+---
+
+
+
 #### 1.1 类内的静态变量 static
 
 优点:
