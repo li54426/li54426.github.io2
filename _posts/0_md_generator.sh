@@ -5,9 +5,10 @@ filename=$(date +"%Y-%m-%d-.md")
 cat > "$filename" << EOF
 ---
 layout: post
-title: "网页名称"
-categories: AI
-tags: AI
+title: ""
+date:  $(date +"%Y-%m-%d %H:%M:%S")
+categories: default
+tags: default
 author: li54426
 ---
 

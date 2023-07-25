@@ -1,3 +1,76 @@
+#### my work
+
+#### **自动提交**脚本, 无脑点击就行
+
+存储为 `bat`文件
+
+```bash
+@echo off
+
+setlocal enabledelayedexpansion
+
+REM 获取当前日期和时间
+for /f "tokens=1-4 delims=/ " %%i in ("%date%") do (
+    set year=%%l
+    set month=%%j
+    set day=%%k
+)
+
+for /f "tokens=1-3 delims=:." %%i in ("%time%") do (
+    set hour=%%i
+    set minute=%%j
+    set second=%%k
+)
+
+REM 构建提交信息
+set commit_message=%year%-%month%-%day% %hour%:%minute%:%second%
+
+REM 添加文件到暂存区
+git add .
+
+REM 提交代码，并包含日期和时间作为提交信息
+git commit -m "%commit_message%"
+
+REM 推送到远程仓库
+git push
+
+endlocal
+
+```
+
+
+
+
+
+#### 一键创建 md 文档
+
+存储为 `.sh`文件
+
+```sh
+#!/bin/bash
+
+filename=$(date +"%Y-%m-%d-.md")
+
+cat > "$filename" << EOF
+---
+layout: post
+title: "网页名称"
+categories: AI
+tags: AI
+author: li54426
+---
+
+* content
+{:toc}
+EOF
+
+echo "文件已生成：$filename"
+```
+
+
+
+
+
 # 关于这个博客主题
 
 随着 jekyll 的版本升级，同时我也想重构我的旧版博客主题，因此在这个月对博客进行了重构加改版，这个仓库存放我的新博客，并且我也会一直使用这个主题。目前基本改版完成，后续可能还会有些细节上的修补。
