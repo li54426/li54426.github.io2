@@ -1,10 +1,16 @@
 ---
 layout: post
-title:  "STL_basic"
-categories: Algorithm
-tags:  Algorithm
+title: "cpp_STL_O_basic"
+categories: cpp
+tags: cpp STL
 author: li54426
 ---
+
+* content
+{:toc}
+
+
+### 类内成员
 
 
 
@@ -12,11 +18,15 @@ author: li54426
 
 优点:
 
-- static的名字在类的作用域内, 是类的一部分, 而不是对象的一部分
+- static的名字在类的作用域内, 是**类的一部分**, 而不是对象的一部分
 - static成员可以是私有成员
 - 所有对象**共享**同一份数据
 - 类内声明，类外初始化
 - 在编译阶段分配内存
+
+
+
+
 
 #### 1.2 静态成员函数
 
@@ -26,7 +36,7 @@ author: li54426
 
 泛整型可以类内直接初始化，包括bool short int long等，其余类型包括float，double及string等都不可以。
 
-```
+```c++
 class A{
 public:
 	static int staint;
@@ -34,7 +44,9 @@ public:
 int A::staint = 0;
 ```
 
-#### 2.1 操作符 重载
+
+
+#### 1.3 操作符 重载
 
 作用 : 对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型
 
@@ -49,6 +61,10 @@ int A::staint = 0;
 
 Note:    ::  .*    .    ?=   不能重载
 
+
+
+### 3 模板
+
 #### 3.1 模板简介
 
 ​	**泛型编程**就是以独立于任何特定类型的方式编写代码, 使用泛型程序时， 需要提供具体程序实例所操作的类型或值. 
@@ -60,7 +76,7 @@ Note:    ::  .*    .    ?=   不能重载
 - 函数模板
 - 类模板
 
-### 1 函数模板
+#### 3.2  函数模板
 
 函数模板提供了一种函数行为，该函数行为可以用多重不同类型进行调用。也就是说，函数模板代表一个函数家族。
 
@@ -79,7 +95,11 @@ int compare(const T &a, const T &b){
 cout<< compare(1, 0);
 ```
 
-### 2 类模板
+
+
+
+
+#### 3.3 类模板
 
 类模板与函数模板区别主要有两点：
 
@@ -92,9 +112,9 @@ cout<< compare(1, 0);
 - 普通类中的成员函数一开始就可以创建
 - 类模板中的成员函数在调用时才创建
 
-#### 2.1 类模板的使用
+#### 3.4 类模板的使用
 
-```
+```c++
 template<class NameType, class AgeType = int>
 class Person{};
 
@@ -114,7 +134,7 @@ void test02(){
 
 
 
-#### 2.2 类模板  做 函数参数
+#### 3.5 类模板  做 函数参数
 
 一共有三种传入方式：
 
@@ -122,7 +142,7 @@ void test02(){
 - 参数模板化 --- 将对象中的参数变为模板进行传递
 - 整个类模板化 --- 将这个对象类型 模板化进行传递
 
-```
+```c++
 template<class NameType, class AgeType = int>
 class Person{};
 
@@ -169,7 +189,11 @@ int main() {
 
 
 
-```
+
+
+#### 3.6 类内的 模板对象
+
+```c++
 template<class T>
 class stack{
 private:
@@ -189,19 +213,26 @@ template<class T, int max> stack :: pop(){
 }
 ```
 
-#### 3 特化
+
+
+
+
+#### 3.7 特化
+
+- 有时候我们可能需要为某些特定类型或特定情况提供特殊的实现方式。这就是模板的特化的作用。
+- 偏特化与完全特化类似，但存在一定的区别。完全特化是对模板的所有类型参数都进行具体化，而偏特化则只对其中的部分类型参数进行特化。所以偏特化以后, 依旧是 **模板**
 
 偏特化的定义: 提供另一份 template 的定义式, 本是一就是templatized
 
-```
-泛化
+```c++
+// 泛化, 特化
 template <class T, class Allocalloc>
 class vector
 {
 };
 
-//个数的偏特化  -  原来是两个模板参数, 现在是一个
-//针对某个类型做特别的优化
+// 个数的偏特化  -  原来是两个模板参数, 现在是一个
+// 针对某个类型做特别的优化
 template<class Alloc>
 class vector<bool, Alloc>
 {
