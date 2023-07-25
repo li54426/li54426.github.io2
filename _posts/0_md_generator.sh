@@ -5,7 +5,7 @@ filename=$(date +"%Y-%m-%d-.md")
 cat > "$filename" << EOF
 ---
 layout: post
-title: ""
+title:  ""
 date:   $(date +"%Y-%m-%d %H:%M:%S %z")
 categories: default
 tags: default
