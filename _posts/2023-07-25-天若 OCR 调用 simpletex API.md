@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "天若ocr调用simpletex"
-date:  2023-07-25 21:12:03
+date:   2023-07-25 21:19:24 +0800
 categories: API
 tags: software
 author: li54426
