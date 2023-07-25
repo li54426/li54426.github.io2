@@ -2,8 +2,8 @@
 layout: post
 title: "algorithm_teacher_1"
 date:   2023-07-24 21:19:24 +0800
-categories: algorithm_teacher
-tags: algorithm_teacher
+categories: algorithm 
+tags: algorithm teacher
 author: li54426
 ---
 
