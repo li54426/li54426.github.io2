@@ -1,10 +1,12 @@
 ---
-layout: post
-title: "天若ocr调用simpletex"
-date:   2023-07-25 21:19:24 +0800
-categories: API
-tags: software
-author: li54426
+layout: blog
+banana: true
+category: API_software
+title:  天若ocr调用simpletex
+date:   2023-07-25 21:19:24
+tags:
+- software
+- API
 ---
 
 * content
