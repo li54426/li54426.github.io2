@@ -9,7 +9,7 @@ banana: true
 category: API_software
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background: black
+background: blue
 tags:
 - default
 - memcache
