@@ -3,8 +3,8 @@ title:            "Welcome to li54426's GitHub blog"
 description:      "记录我的 coding 之路"
 url:              https://li54426.github.io # 域名
 signoff:          "li54426" # Your name
-#facebook_appid:   #liberxue
-#google_analytics: UA-101222464-1
+# facebook_appid:   #liberxue
+# google_analytics: UA-101222464-1
 share:            true 
 # 分页
 paginate: 15
