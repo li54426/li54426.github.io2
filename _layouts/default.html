@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
+
   {% include head.html %}
+
   <body>
-    {% include nav.html %}
 
-    {% if page.toc==true %}
-      <aside class="toc">
-        {% include toc.html html=content %}
-      </aside>
-    {% endif %}
+    {% include header.html %}
 
-    <div id="main" role="main" class="wrapper-content">
-      <div class="container">
         {{ content }}
-      </div>
-    </div>
 
-    {% include analytics.html %}
+    {% include footer.html %}
+    {% include backToTop.html %}
+    <script src="{{ " /js/main.js " | prepend: site.baseurl }}" charset="utf-8"></script>
+    <script src="{{ " /js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script>
   </body>
-
-  {% if page.toc==true %}
-  <script>
-    document.getElementById("main").classList.add("withtoc");
-  </script>
-  {% endif %}
-
-  <div class="wrapper-footer-mobile">
-    <footer class="footer">
-      {% include footer.html %}
-    </footer>
-
 
 </html>
