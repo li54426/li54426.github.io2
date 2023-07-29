@@ -1,7 +1,8 @@
 ---
 layout: blog
+banana: true
 category: API_software
-title:  "永远热爱 Markdown"
+title:  永远热爱 Markdown
 background: black
 date:   2023-07-23 14:21:18
 - software
