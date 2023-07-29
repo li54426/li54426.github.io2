@@ -4,6 +4,7 @@ banana: true
 category: API_software
 title:  天若ocr调用simpletex
 date:   2023-07-25 21:19:24
+background: blue
 tags:
 - software
 - API

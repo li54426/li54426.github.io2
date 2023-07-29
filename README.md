@@ -19,6 +19,7 @@ liberxue.github.io preview (demo) (http://www.liberxue.com)
 
 - 打开`\_posts` 文件夹，文件夹中的内容就是你的**博客**, 博客格式为 `markdown`
 - 文件名格式为`2015-06-11-xxxx.md`, 不能有中文, 文件名会成为这篇博文的链接
+- 当天的`blog`不会上传
 
 ```markdown
 layout: blog
@@ -106,7 +107,7 @@ banana: true
 category: default
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background-image: http://ot1cc1u9t.bkt.clouddn.com/17-8-1/24280498.jpg
+background: green
 tags:
 - default
 - memcache
