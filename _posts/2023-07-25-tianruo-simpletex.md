@@ -4,7 +4,6 @@ title: "天若ocr调用simpletex"
 date:   2023-07-25 21:19:24 +0800
 categories: API
 tags: software
-author: li54426
 ---
 
 * content
@@ -14,6 +13,8 @@ author: li54426
 天若 OCR调用 simpletex API
 
 记录一次使用别人的接口
+
+
 
 
 
@@ -33,7 +34,7 @@ author: li54426
 
 #### 2 作者暴露出的部分接口
 
-```
+```C#
 //image：要识别的图片
 public static string OCR_Custom(Image image)
 {
