@@ -33,7 +33,7 @@ author: li54426
 
 #### 2 作者暴露出的部分接口
 
-```C#
+```
 //image：要识别的图片
 public static string OCR_Custom(Image image)
 {
