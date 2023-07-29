@@ -1,19 +1,54 @@
-                .::         .::                       .::      .::                 
-                .::       .:.::                        .::   .::                    
-                .::         .::         .::    .: .:::  .:: .::   .::  .::   .::    
-                .::      .::.:: .::   .:   .::  .::       .::     .::  .:: .:   .:: 
-                .::      .::.::   .::.::::: .:: .::     .:: .::   .::  .::.::::: .::
-                .::      .::.::   .::.:         .::    .::   .::  .::  .::.:        
-                .::::::::.::.:: .::    .::::   .:::   .::      .::  .::.::  .::::   
-                          Copyright (c) 2016-2018 liberxue
-                                 http://www.liberxue.com
+## 感谢
+
+liberxue.github.io preview (demo) (http://www.liberxue.com)
 
 
+
+## 修改
 
 #### 设置说明
 
 - 修改_config.yml 的 links 为您的菜单
 -  修改_config.yml 的 paginate 为您的按照多少页分页
+-  修改自己的网**图标**`\style\favicons\favicon.ico`
+-  在`_layouts\blog.html`中, 将 `本文由 <a href="/">liberxue</a> 创作` 改为自己的名字
+
+
+
+#### 使用说明
+
+- 打开`\_posts` 文件夹，文件夹中的内容就是你的**博客**, 博客格式为 `markdown`
+- 文件名格式为`2015-06-11-xxxx.md`, 不能有中文, 文件名会成为这篇博文的链接
+
+```markdown
+layout: blog
+book: true
+title:  "《美丽新世界》之幸福和自由思考"
+background: green
+background-image: http://ot1cc1u9t.bkt.clouddn.com/17-7-15/78939382.jpg
+date:   2017-07-03 23:13:54
+category: 书籍
+tags:
+- 美丽新世界 
+
+
+
+
+
+可选项目
+// 设置颜色
+background: green
+
+// 设置路径
+redirect_from:
+  - /about/
+```
+
+
+
+
+
+
 
 
 
