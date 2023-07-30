@@ -6,20 +6,27 @@ liberxue.github.io preview (demo) (http://www.liberxue.com)
 
 ## 修改
 
+[我的项目地址](https://li54426.github.io/)
+
+
+
 #### 设置说明
 
 - 修改_config.yml 的 links 为您的菜单
 -  修改_config.yml 的 paginate 为您的按照多少页分页
 -  修改自己的网**图标**`\style\favicons\favicon.ico`
--  在`_layouts\blog.html`中, 将 `本文由 <a href="/">liberxue</a> 创作` 改为自己的名字
+-  修改自己的网**标志**`\style\favicons\logo-liberxue.png`
+-  在`_layouts\blog.html`中, 将 `本文由 <a href="/">liberxue</a> 创作` 改为您的`github`名字
+-  修改`\about.md`中的内容, 它对应着文章中的`关于`这一页
+-  在`_layouts\default.html`中, 将 `本文由 <a href="/">liberxue</a> 创作` 改为您的`github`名字
 
 
 
 #### 使用说明
 
-- 打开`\_posts` 文件夹，文件夹中的内容就是你的**博客**, 博客格式为 `markdown`
-- 文件名格式为`2015-06-11-xxxx.md`, 不能有中文, 文件名会成为这篇博文的链接
-- 当天的`blog`不会上传
+- 打开`\_posts` 文件夹是**博客文章**所在的位置，文件夹中的内容就是你的**博客**, 博客格式为 `markdown`
+- 文件名格式为`2015-06-11-xxxx.md`, **不能有中文**, 文件名会成为这篇博文的链接
+- ~~当天的`blog`不会上传~~
 
 ```markdown
 layout: blog
