@@ -2,12 +2,12 @@
 layout: blog
 banana: true
 category: API_software
-title:  
+title:  "如何基于github快速建立博客站点"
 date:   2023-07-30 16:28:49
 background: blue
 tags:
-- default
-- memcache
+- blog
+- API_software
 ---
 
 * content

@@ -11,8 +11,7 @@ title:
 date:   $(date +"%Y-%m-%d %H:%M:%S")
 background: blue
 tags:
-- default
-- memcache
+- API_software
 ---
 
 * content
