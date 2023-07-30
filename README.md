@@ -1,6 +1,12 @@
 ## 感谢
 
+[原作者项目地址](https://github.com/Liberxue/liberxue.github.io)
+
 liberxue.github.io preview (demo) (http://www.liberxue.com)
+
+
+
+
 
 
 
@@ -25,7 +31,7 @@ liberxue.github.io preview (demo) (http://www.liberxue.com)
 #### 使用说明
 
 - 打开`\_posts` 文件夹是**博客文章**所在的位置，文件夹中的内容就是你的**博客**, 博客格式为 `markdown`
-- 文件名格式为`2015-06-11-xxxx.md`, **不能有中文**, 文件名会成为这篇博文的链接
+- 文件名格式为`2015-06-11-xxxx.md`, **不能有中文**, 因为文件名会成为这篇博文的链接
 - ~~当天的`blog`不会上传~~
 
 ```markdown
@@ -58,7 +64,11 @@ redirect_from:
 
 
 
+#### 颜色说明
 
+- 蓝色: 软件/ API/ 提升效率
+- 绿色: 语言相关
+- 紫色: 算法/ 周赛
 
 
 
