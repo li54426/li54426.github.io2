@@ -46,6 +46,8 @@ tags:
 可选项目
 // 设置颜色
 background: green
+background: blue
+background: purple
 
 // 设置路径
 redirect_from:

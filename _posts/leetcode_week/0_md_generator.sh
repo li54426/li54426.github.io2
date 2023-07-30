@@ -7,9 +7,9 @@ cat > "$filename" << EOF
 layout: blog
 banana: true
 category: algorithm
-title:  
+title:  第场周赛
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background: pink
+background: purple
 tags:
 - algorithm
 - leetcode_week
