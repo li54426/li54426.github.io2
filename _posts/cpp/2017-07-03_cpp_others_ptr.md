@@ -1,12 +1,13 @@
 ---
 layout: blog
-book: true
+banana: true
 title:  "c++感想之指针1"
 background: green
 date:   2017-07-03 23:13:54
-category: 书籍
+category: cpp
 tags:
-- 美丽新世界 
+- cpp
+- ptr
 ---
 
 
