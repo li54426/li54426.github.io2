@@ -9,7 +9,7 @@ banana: true
 category: algorithm
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background: pink
+background: purple
 tags:
 - algorithm
 ---
