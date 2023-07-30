@@ -3,7 +3,7 @@ layout: blog
 banana: true
 title:  "c++感想之指针1"
 background: green
-date:   2017-07-03 23:13:54
+date:   2023-07-03 23:13:54
 category: cpp
 tags:
 - cpp
