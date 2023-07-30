@@ -10,6 +10,11 @@ tags:
 - ptr
 ---
 
+* content
+{:toc}
+
+
+
 
 ## cpp感想(1)---指针
 
