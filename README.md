@@ -12,7 +12,7 @@ defaults:
       toc: true
 ```
 
-- 可以通过修改 _ config.yml 中的 cover _ image 变量来设置自己的封面图像，还可以通过在每个页面上设置 cover _ image 变量来设置不同页面上的封面图像。
+- 可以通过修改 _ config.yml 中的 `cover _ image `变量来设置自己的封面图像，还可以通过在每个页面上设置 `cover _ image` **变量**来设置不同页面上的封面图像。
 
 
 
