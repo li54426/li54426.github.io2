@@ -4,7 +4,7 @@ banana: true
 category: algorithm
 title:  经典的数组的题目
 date:   2023-07-30 22:08:29
-background: pink
+background: purple
 tags:
 - algorithm
 - array
