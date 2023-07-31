@@ -1,12 +1,14 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
-url: https://vszhub.github.io
+title: li54425 blog
+description: 记录我的 coding 之路
+url: https://li54426.github.io 
 # 头像在这里
 # avatar: /avatar.jpeg
 avatar: favicon.ico
 paginate: 5
+#产生路径方式
 permalink: pretty
+# 左侧背景图片
 cover_image: /bg.jpeg
 
 # Gems

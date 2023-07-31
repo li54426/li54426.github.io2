@@ -3,6 +3,26 @@ layout: page
 title: About
 ---
 
+
+
+# Hello World
+
+感谢大佬, 开箱即用,  博客使用 Jekyll 搭建托管在GitHub目前使用主题后期[liberxue已开源
+
+
+
+### 使用语言
+
+``C++ ``|``go``| 
+
+
+
+
+
+
+
+
+
 **Not Pure Poole** is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on [Poole](https://github.com/poole/poole) and [Pure](https://purecss.io/).
 
 For more information about Not Pure Poole, please browse the [README](https://github.com/vszhub/not-pure-poole) file.
