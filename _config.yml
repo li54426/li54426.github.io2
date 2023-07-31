@@ -42,7 +42,7 @@ logo: logo.png
  #   - https://twitter.com/vszhub
 #    - https://github.com/vszhub
 #google_site_verification: xxxxx
-l#ang: en
+#lang: en
 
 sass:
   sass_dir: _sass
@@ -63,7 +63,5 @@ author:
   email: vszhub@gmail.com
 
 defaults:
- - scope:
-      path: "" # 一个空的字符串代表项目中所有的文件
   - values:
       toc: true
