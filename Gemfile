@@ -1,3 +1,4 @@
-source 'http://rubygems.org'
+source "https://rubygems.org"
+gemspec
 
-gem 'github-pages'
+gem 'jekyll-compose', group: [:jekyll_plugins]
