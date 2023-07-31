@@ -1,5 +1,5 @@
 # Setup
-title: li54425 blog
+title: li54426 blog
 description: 记录我的 coding 之路
 url: https://li54426.github.io 
 # 头像在这里
@@ -63,5 +63,8 @@ author:
   email: vszhub@gmail.com
 
 defaults:
+ -
+    scope:
+      path: "" # 一个空的字符串代表项目中所有的文件
   - values:
       toc: true
