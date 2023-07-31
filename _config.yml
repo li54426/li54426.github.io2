@@ -31,8 +31,8 @@ links:
     external:     false
 # ------------ CONFIGURABLE END ------------
 
-#permalink:        /:categories/:title.html
-permalink: /:year/:month/:day/:title.html
+permalink:        /:categories/:title.html
+#permalink: /:year/:month/:day/:title.html
 defaults:
   - values:
       layout: "default"
