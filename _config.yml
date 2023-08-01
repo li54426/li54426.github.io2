@@ -7,7 +7,7 @@ url: https://li54426.github.io
 avatar: favicon.ico
 paginate: 5
 #产生路径方式
-permalink: /:categories/:title.html
+permalink: /:categories/:year/:title.html
 #permalink: pretty
 # 左侧背景图片
 cover_image: /bg.jpeg

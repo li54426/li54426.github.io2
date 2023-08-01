@@ -15,6 +15,62 @@ defaults:
 ```
 
 - 可以通过修改 _ config.yml 中的 `cover _ image `变量来设置自己的封面图像，还可以通过在每个页面上设置 `cover _ image` **变量**来设置不同页面上的封面图像。
+- 产生路径方式(路由方式)`permalink: /:categories/:title.html`
+- 您可以在`_data/social.yml` 中设置**社交链接**。您可以自定义标题，URL和图标（目前仅支持[字体真棒](https://fontawesome.com/)），例如：
+
+    ```
+    - title: Email
+      url: mailto://vszhub@gmail.com
+      icon: fas fa-envelope
+    - title: Twitter
+      url: https://twitter.com/vszhub
+      icon: fab fa-twitter
+    - title: GitHub
+      url: https://github.com/vszhub/not-pure-poole
+      icon: fab fa-github
+    ```
+
+
+
+### 启用帖子存档
+
+Not Pure Poole 支持按日期，类别和标签存档的帖子。要启用此功能，您应该将以下一些数据放入：`_data/archive.yml`
+
+```
+- type: dates
+  title: Dates
+  url: /dates/
+- type: categories
+  title: Categories
+  url: /categories/
+- type: tags
+  title: Tags
+  url: /tags/
+```
+
+之后，这些存档页面的导航将显示在主页顶部。
+
+然后，您可以创建一个类别存档页面，并在该页面上设置以下参数：
+
+```
+---
+layout: archive-taxonomies
+type: categories
+---
+```
+
+或标签存档页面：
+
+```
+layout: archive-taxonomies
+type: tags
+```
+
+或按日期存档：
+
+```
+layout: archive-dates
+```
 
 
 
