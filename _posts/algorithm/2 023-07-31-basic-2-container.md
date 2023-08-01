@@ -649,7 +649,9 @@ void printMap(map<int,int>&m){
 
 ```c++
 // 注意：C++11才开始支持括号初始化
-unordered_map<int, string> mp={{ 1, "张三" },{ 2, "李四" }};
+unordered_map<int, string> mp={
+    { 1, "张三" },{ 2, "李四" }
+};
 
 // 使用[ ]进行单个插入，若已存在键值，则赋值修改，若无则 插入。
 mp[2] = "李四";   //不会插入  
