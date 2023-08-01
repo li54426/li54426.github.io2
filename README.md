@@ -4,6 +4,20 @@
 
 
 
+#### 问题概览
+
+最新的 2.0 版本似乎打破了 `{{` 在模板中的使用，不再类似以前的版本，在 2.0 版本使用 `{{` 会出现以下问题：
+
+```bash
+'{{' was not properly terminated with regexp: /\}\}/  (Liquid::SyntaxError)
+```
+
+
+
+
+
+
+
 #### 设置说明
 
 - 在`_config.yml` 末尾 添加了, 每篇文章开启默认目录
