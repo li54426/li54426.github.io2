@@ -1,6 +1,6 @@
 ## 修改 V1-2023-7-31
 
-使用了另一个模板[vszhub/not-pure-poole: A simple, beautiful, and powerful Jekyll theme for blogs. (github.com)](https://github.com/vszhub/not-pure-poole)
+- 因为上一个模板渲染代码块难以辨认, 使用了另一个模板[vszhub/not-pure-poole: A simple, beautiful, and powerful Jekyll theme for blogs. (github.com)](https://github.com/vszhub/not-pure-poole)
 
 
 
@@ -18,6 +18,17 @@
 
 ```bash
 '{{' was not properly terminated with regexp: /\}\}/  (Liquid::SyntaxError)
+```
+
+
+
+#### 问题2---图片无法加载
+
+- 不要在 \_posts 下面建立目录
+- 新建一个文件夹`assets`
+
+```mark
+![image-20220906145334336](/assets/20230801md.png)
 ```
 
 
