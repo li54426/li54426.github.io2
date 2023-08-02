@@ -2,7 +2,7 @@
 layout: blog
 banana: true
 category: cpp
-title:  GDB的使用方法
+title:  "cmake && GDB的使用方法"
 date:   2023-07-30 16:52:28
 background: green
 tags:
@@ -12,6 +12,34 @@ tags:
 * content
 {:toc}
 
+
+### Cmake
+
+
+
+#### cmake 教程
+
+- 编写 CMakeLists.txt 文件。
+- 创建一个 build 目录，用来存放 cmake 生成的文件。（这一步非必须）
+- cd 进入 build 目录下，执行 cmake .. 命令，将 CMakeLists.txt 文件转化为 make 所需的 makefile 文件，其中路径 .. 表示 CMakeLists.txt 所在目录（路径可以根据自己 CMakeLists.txt 所在目录更改）。
+- 在 build 目录下，执行 make 命令，生成目标可执行文件。（注意：make 命令要在 cmake 生成的 makefile 文件所在目录下执行，
+
+我这里生成的 makefile 文件在 build 目录下。）
+
+
+
+```bash
+# src 下 有 CMakeLists.txt
+# 需要进入 /src
+cmake src/..
+make
+```
+
+
+
+
+
+### GDB
 
 #### gdb官方文档
 
