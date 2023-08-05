@@ -4,6 +4,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 ### md 生成网站 问题概览
 
 
@@ -37,7 +47,7 @@
 
 - `about`无法使用
 - 解决方案
-    - 在`about.md`中, 加入如下 
+    - 在`about.md`中, 加入如下代码
 
 
 ```c++
@@ -52,7 +62,7 @@ permalink: /about/
 
 
 
-#### 设置说明
+### 设置(  模板修改 )  说明
 
 - 在`_config.yml` 末尾 添加了, 每篇文章开启默认目录
 
@@ -78,9 +88,14 @@ defaults:
       icon: fab fa-github
     ```
 
+- 将`about.md, tags.md, dates.md`移入`post`文件夹下
+- **侧边栏**增加新的导航`tools.md`, 来存放`github`的其他仓库
 
 
-### 启用帖子存档
+
+
+
+### 页面导航
 
 Not Pure Poole 支持按日期，类别和标签存档的帖子。要启用此功能，您应该将以下一些数据放入：`_data/archive.yml`
 
