@@ -32,6 +32,18 @@ http协议位于传输层上方, 但是不一定是最高的层次, 他就像操
 
 
 
+用户关心的事情只有
+
+- 对发送来的 `HTTP`做出**回复**
+- 因此, 为用户提供的接口是
+
+```c++
+using HttpCallback = function<void(const HttpRequest &, HttpResponse * )>;
+void setHttpCallback(const HttpCallback & cb);
+```
+
+
+
 
 
 ### 1 HttpRequest
