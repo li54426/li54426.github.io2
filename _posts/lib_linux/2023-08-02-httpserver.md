@@ -11,7 +11,7 @@ tags:
 {:toc}
 
 
-### 写在开头
+### 0 写在开头
 
 “**如无必要，勿增实体**”---------威廉
 
@@ -20,6 +20,15 @@ tags:
 http协议位于传输层上方, 但是不一定是最高的层次, 他就像操作系统对于硬件和用户的关系一样, 既要支持用户直接用, 也要支持作为协议的一层
 
 从支持用户直接使用的角度来看, 报文的请求行, 请求头, 请求体要一块进行处理, 但是从协议的一层来看, 请求体要向上传递, 交给另一个协议进行处理, 设计时, 要让 `body`部分不处理, 这就带来了一个问题, 如何区分`headers`和`body`, 因为headers可以有很多行, 协议的设计人员使用一个**空行**来进行分隔, 既要用少的规则来区分不同的属性, 又要尽可能的简单
+
+
+
+优点
+
+- 有着`crlf`这个明确的分界线来表示一行, 我们能够逐行处理
+- 请求行中有着空格隔开, 可以十分方便的处理每个值
+- 请求头分为很多行, 可以逐行处理, 使用同一个逻辑
+- 请求头和请求体之间有着一个空行, 标志着请求头的结束, 能够方便的区分这两者
 
 
 
@@ -258,7 +267,7 @@ bool HttpContext::processRequestLine(const char *begin, const char *end)
 
 
 
-### httpResponse
+### 3 httpResponse
 
 ```c++
 class HttpResponse{
@@ -309,6 +318,133 @@ private:
     bool close_connection_;
     std::map<string, string> headers_;
 };
+
+```
+
+
+
+
+
+### 4 HttpServer
+
+用户只需要关心：
+
+- 对来的 报文 做 制作 `response`, 因此`using HttpCallback = function<void(const HttpRequest &, HttpResponse * )> ;`, 第一个参数用来保存用户的请求, 第二个参数我们用来制作报文
+- 为用户提供的**接口**是`function<void(const HttpRequest &, HttpResponse * )>`
+
+因此在 `onMessage `中, 库设计者需要
+
+- 将`tcp`中的消息转换为 **HTTP报文**
+- 调用用户传入的`callback`函数, 
+- 发送 response
+
+
+
+```c++
+class HttpServer{
+public:
+    using HttpCallback = function<void(const HttpRequest &, HttpResponse * )> ;
+
+    // 实际就是进行 server_的初始化操作
+    HttpServer(EventLoop *loop, const InetAddress & linten_addr, 
+                const string & name, TcpServer::Option option = TcpServer::kNoReusePort);
+    EventLoop * getLoop()const;
+    void setHttpCallback(const HttpCallback & cb){
+        http_callback_ = cb;
+    }
+
+    void setThreadNum(int num_thread){
+        server_.setNumThread(num_thread);
+    }
+
+    void start();
+
+    void onConnection(const TcpConnectionPtr & conn);
+    void onMessage(const TcpConnectionPtr &conn, Buffer *buf, Timestamp receive_time);
+
+    void onRequest(const TcpConnectionPtr& conn, const HttpRequest & req);
+
+
+private:
+    TcpServer server_;
+    HttpCallback http_callback_;
+};
+
+
+
+void defaultHttpCallback(const HttpRequest &, HttpResponse *resp){
+    resp-> setStatusCode(HttpResponse::k404NotFound);
+    resp-> setStatusMessage("Not Found");
+    resp-> setCloseConnection(true);
+}
+
+
+
+HttpServer::HttpServer(EventLoop *loop, const InetAddress &listen_addr, 
+    const string &name, TcpServer::Option option):
+    server_(loop, listen_addr, name, option ),
+    http_callback_(defaultHttpCallback)
+{
+    server_.setConnectionCallback(std::bind(&HttpServer::onConnection, this, _1));
+    server_.setMessageCallback(std::bind(&HttpServer::onMessage, this, _1, _2, _3));
+    
+}
+
+EventLoop *HttpServer::getLoop() const
+{
+    return server_.getLoop();
+}
+
+void HttpServer::start()
+{
+    LOG_DEBUG("httpserver %s start, listen on %s", server_.name(), server_.ipPort());
+    server_.start();
+}
+
+void HttpServer::onConnection(const TcpConnectionPtr &conn)
+{
+    if(conn-> connected()){
+        conn->setContext();
+    }
+}
+
+void HttpServer::onMessage(const TcpConnectionPtr &conn, Buffer *buf, Timestamp receive_time)
+{
+    HttpContext context;
+    bool ok =  context.parseRequCest(buf, receive_time);
+    if(!ok){
+        conn-> send(string("HTTP/1.1 400 Bad Request\r\n\r\n"));
+        conn-> shutdown();
+    }
+
+    if(context.gotAll()){
+        onRequest(conn, context.request());
+        context.reset();
+    }
+
+
+
+}
+
+void HttpServer::onRequest(const TcpConnectionPtr &conn, const HttpRequest &req)
+{
+    const string &connection = req.getHeader("Connection");
+    bool isclose = connection=="close" || 
+        (req.getVersion() == HttpRequest::kHttp10 && connection != "Keep-Alive");
+
+    HttpResponse response(isclose);
+    http_callback_(req, &response);
+    Buffer buf;
+    response.appendToBuffer(&buf);
+    conn->send(&buf);
+
+    if(response.closeConnection()){
+        conn-> shutdown();
+    }
+
+
+
+}
 
 ```
 
