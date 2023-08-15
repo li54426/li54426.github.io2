@@ -135,3 +135,55 @@ istringstream::istringstream(string str);
     }
 ```
 
+
+
+
+
+
+
+
+
+### 358
+
+#### [2817. 限制条件下元素之间的最小绝对差 - 力扣（LeetCode）](https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/)
+
+> 给你一个下标从 **0** 开始的整数数组 `nums` 和一个整数 `x` 。
+>
+> 请你找到数组中下标距离至少为 `x` 的两个元素的 **差值绝对值** 的 **最小值** 。
+>
+> 换言之，请你找到两个下标 `i` 和 `j` ，满足 `abs(i - j) >= x` 且 `abs(nums[i] - nums[j])` 的值最小。
+>
+> 请你返回一个整数，表示下标距离至少为 `x` 的两个元素之间的差值绝对值的 **最小值** 。
+>
+> ```
+> 输入：nums = [4,3,2,4], x = 2
+> 输出：0
+> 解释：我们选择 nums[0] = 4 和 nums[3] = 4 。
+> 它们下标距离满足至少为 2 ，差值绝对值为最小值 0 。
+> 0 是最优解。
+> ```
+
+```c++
+class Solution {
+public:
+    int minAbsoluteDifference(vector<int>& nums, int x) {
+        int res = INT_MAX, len = nums.size();
+
+        // 两个哨兵, 保证一定能找到比  n 大和小的元素
+        set<int> s={INT_MIN/2, INT_MAX};
+
+        for(int i = x; i<len; ++i){
+            int n = nums[i-x];
+            s.insert(n);
+            int y = nums[i];
+            // 
+            auto it = s.lower_bound(y);
+            res = min(res, min(*it - y, y- *--it));
+
+        }
+        return res;
+        
+    }
+};
+```
+

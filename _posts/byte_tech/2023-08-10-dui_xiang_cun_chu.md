@@ -2,7 +2,7 @@
 layout: blog
 banana: true
 category: byte_tech
-title:  "Go_"
+title:  "Go_对象存储"
 date:   2023-08-10 10:04:35
 background: green
 tags:
