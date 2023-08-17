@@ -222,7 +222,7 @@ func main() {
 
 #### 互斥锁
 
-- 互斥锁，确保同时只有一个 goroutine 可以访问共享数据。
+- 互斥锁，确保同时只有一个 goroutine 可以**访问共享**数据。
 
 ```go
 package main
