@@ -20,9 +20,19 @@ tags:
 
 #### 携程
 
+Go 语言中的 goroutine 就是这样一种机制，goroutine 的概念类似于线程，但 goroutine 是由 Go 的运行时（runtime）调度和管理的。Go 程序会智能地将 goroutine 中的任务合理地分配给每个 CPU。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。
+
+在 Go 语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–goroutine，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个**函数**，开启一个 goroutine 去执行这个函数就可以了，就是这么简单粗暴。
+
 协程:用户态,轻量级线程, 栈KB级别
 
 线程:内核态,线程跑多个协程, 栈MB级别
+
+
+
+
+
+
 
 ```go
 package main
@@ -96,7 +106,7 @@ CSP (Communicating Sequential Processes) 通信顺序进程，是 Go 语言中�
 
 主要特征有
 
-1. 顺序进程：每个进程内部按顺序执行。
+1. **顺序**进程：每个进程内部按顺序执行。
 2. 通信进程：进程间通过通信 (Message Passing) 来协作。
 3. 数据流：程序通过在进程间传递数据来工作。
 
@@ -117,48 +127,51 @@ Go 语言的 CSP 实现主要通过 goroutine 和 channel
 - 通过共享内存实现通信---临界区
 
 ```go
+var ch1 chan int   // 声明一个传递整型的通道
+var ch2 chan bool  // 声明一个传递布尔型的通道
+var ch3 chan []int // 声明一个传递int切片的通道
 
-//共享内存, 直接读写同一份内存 frequencies map
-var frequencies map[int]int 
+// 通道是引用类型，通道类型的空值是 nil。
+// 声明的通道后需要使用 make 函数初始化之后才能使用。
+ch4 := make(chan int)
+ch5 := make(chan bool)
+ch6 := make(chan []int)
 
-go func() {
-  //统计频次
-  for {
-    //读写frequencies map
-  } 
-}()
+// 发送    将一个值发送到通道中。
+ch <- 10 // 把10发送到ch中
 
-go func() {
-  //记录最高频数
-  for {  
-    //读取frequencies map
-  }
-}()
+// 接收----从一个通道中接收值。
+x := <- ch // 从ch中接收值并赋值给变量x
+<-ch       // 从ch中接收值，忽略结果
 
+//  close 函数来关闭通道。关闭通道不是必须
+close(ch)
+```
 
-
-
-// 通信
-func CalSquare() {
-    src := make(chan int)
-    dest := make(chan int, 3)
-
+```go
+func main() {
+    ch1 := make(chan int)
+    ch2 := make(chan int)
+    // 开启goroutine将0~100的数发送到ch1中
     go func() {
-        defer close(src)
-        for i := 0; i < 10; i++ {
-            src <- i
+        for i := 0; i < 100; i++ {
+            ch1 <- i
         }
+        close(ch1)
     }()
-
+    // 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中
     go func() {
-        defer close(dest)
-        for i := range src {
-            dest <- i * i
+        for {
+            i, ok := <-ch1 // 通道关闭后再取值ok=false
+            if !ok {
+                break
+            }
+            ch2 <- i * i
         }
+        close(ch2)
     }()
-
-    for i := range dest {
-        // 复杂操作
+    // 在主goroutine中从ch2中接收值打印
+    for i := range ch2 { // 通道关闭后会退出for range循环
         fmt.Println(i)
     }
 }
