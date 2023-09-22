@@ -2,7 +2,7 @@
 layout: blog
 banana: true
 category: cpp
-title:  
+title:  函数模板与 auto 关键字
 date:   2023-08-23 11:43:45
 background: green
 tags:
