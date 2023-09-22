@@ -1155,6 +1155,7 @@ func main() {
     for i := range whatever {
         defer fmt.Println(i)  // 4  3  2  1   0
     }
+    
 }
 
 ```
