@@ -163,3 +163,49 @@ int main(){
 
 ```
 
+
+
+
+
+```c++
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        // s is long , p is short
+        return dp(s, 0, p, 0);
+
+
+    }
+
+    bool dp(string &s, int i, string &p, int j){
+        // * 的作用可以复制, 也可以擦除
+        int len1 = s.size(), len2= p.size();
+
+        if(i< len1 && j< len2){
+            if(s[i] == p[j] || p[j] == '.'){
+                // 特赦情况
+                if(j< len2-1 && p[j+1] == '*'){
+                    // cout<< "s[i] == p[j] || p[j] == '.' && p[j+1] == '*' "<< "i="<< i<< "\tj="<<j << endl;
+                    return dp(s, i+1, p, j) || dp(s, i, p, j+2);
+                }else{
+
+                    return dp(s, i+1, p, j+1);
+                }
+            }else{
+                if(j< len2 -1 && p[j+1] =='*'){
+                    return dp(s, i, p, j+2);
+                }else{
+                    return 0;
+                }
+            }
+        }else if(i == len1){
+            while(j< len2-1 && p[j+1] == '*'){
+                j+=2;
+            }
+            return j == len2;
+        }
+        return 0;
+    }
+};
+```
+
