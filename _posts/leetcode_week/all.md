@@ -829,3 +829,133 @@ int main(){
 
 
 
+
+
+
+
+[2904. 最短且字典序最小的美丽子字符串 - 力扣（LeetCode）](https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/description/)
+
+
+
+> 给你一个二进制字符串 `s` 和一个正整数 `k` 。
+>
+> 如果 `s` 的某个子字符串中 `1` 的个数恰好等于 `k` ，则称这个子字符串是一个 **美丽子字符串** 。
+>
+> 令 `len` 等于 **最短** 美丽子字符串的长度。
+>
+> 返回长度等于 `len` 且字典序 **最小** 的美丽子字符串。如果 `s` 中不含美丽子字符串，则返回一个 **空** 字符串。
+>
+> 对于相同长度的两个字符串 `a` 和 `b` ，如果在 `a` 和 `b` 出现不同的第一个位置上，`a` 中该位置上的字符严格大于 `b` 中的对应字符，则认为字符串 `a` 字典序 **大于** 字符串 `b` 。
+>
+> - 例如，`"abcd"` 的字典序大于 `"abcc"` ，因为两个字符串出现不同的第一个位置对应第四个字符，而 `d` 大于 `c` 。
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：s = "100011001", k = 3
+> 输出："11001"
+> 解释：示例中共有 7 个美丽子字符串：
+> 1. 子字符串 "100011001" 。
+> 2. 子字符串 "100011001" 。
+> 3. 子字符串 "100011001" 。
+> 4. 子字符串 "100011001" 。
+> 5. 子字符串 "100011001" 。
+> 6. 子字符串 "100011001" 。
+> 7. 子字符串 "100011001" 。
+> 最短美丽子字符串的长度是 5 。
+> 长度为 5 且字典序最小的美丽子字符串是子字符串 "11001" 。
+> ```
+
+```c++
+class Solution {
+public:
+    string shortestBeautifulSubstring(string s, int k) {
+        // 如果 s 的某个子字符串中 1 的个数恰好等于 k ，则称这个子字符串是一个 美丽子字符串 。
+        string res;
+        
+        int len = s.size();
+        
+        int l = 0, r = 0;
+        int cnt = 0;
+        while(r< len){
+            if(s[r++] == '1'){
+                cnt++;
+            }
+            
+            while(cnt == k){
+                // cout<<  s.substr(l, r-l)<< endl;
+                if(res.empty()){
+                    res = s.substr(l, r-l);
+                }else if(res.size()  && res.size()> r-l ){
+                    // cout<< "short string"<< endl;
+                    res = s.substr(l, r-l);
+                }else if(res.size() == r-l){
+                    res = min(res, s.substr(l, r-l));
+                }
+                
+                if(s[l++] == '1'){
+                    cnt--;
+                }
+            }
+            
+
+        }
+        
+        return res;
+        
+    }
+};
+```
+
+
+
+
+
+
+
+#### [2905. 找出满足差值条件的下标 II](https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/)
+
+> 给你一个下标从 **0** 开始、长度为 `n` 的整数数组 `nums` ，以及整数 `indexDifference` 和整数 `valueDifference` 。
+>
+> 你的任务是从范围 `[0, n - 1]` 内找出 **2** 个满足下述所有条件的下标 `i` 和 `j` ：
+>
+> - `abs(i - j) >= indexDifference` 且
+> - `abs(nums[i] - nums[j]) >= valueDifference`
+>
+> 返回整数数组 `answer`。如果存在满足题目要求的两个下标，则 `answer = [i, j]` ；否则，`answer = [-1, -1]` 。如果存在多组可供选择的下标对，只需要返回其中任意一组即可。
+>
+> **注意：**`i` 和 `j` 可能 **相等** 。
+
+```c++
+class Solution {
+public:
+    vector<int> findIndices(vector<int>& nums, int idiff, int vdiff) {
+        int len = nums.size();
+
+        // 满足 (j-i)>= idiff 时, 左边数组的最大最小值
+        int maxid = 0, minid = 0;
+        for(int j  = idiff; j< len; ++j){
+            int i = j - idiff;
+            if(nums[maxid] < nums[i]){
+                maxid = i;
+            }
+            if(nums[minid] > nums[i]){
+                minid = i;
+            }
+
+            if(abs(nums[maxid] - nums[j]) >= vdiff){
+                return {maxid, j};
+            }
+
+            if(abs(nums[j] - nums[minid]) >= vdiff){
+                return {minid, j};
+            }
+        }
+
+        return {-1, -1};
+    }
+};
+```
+
