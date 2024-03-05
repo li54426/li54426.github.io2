@@ -1,3 +1,32 @@
+
+
+
+
+#### 生成网站图标
+
+[**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/) 的 [图标](https://www.favicon-generator.org/about/)放在目录中。您可能希望用自己的替换它们。以下部分将指导您创建和替换默认网站图标。`assets/img/favicons/`
+
+#### 生成网站图标
+
+准备一张大小为 512x512 或更大的方形图像（PNG、JPG 或 SVG），然后转到在线工具 [**Real Favicon Generator**](https://realfavicongenerator.net/) 并单击按钮上传您的图像文件。Select your Favicon image
+
+在下一步中，网页将显示所有使用场景。您可以保留默认选项，滚动到页面底部，然后单击按钮以生成网站图标。Generate your Favicons and HTML code
+
+#### 下载并替换
+
+下载生成的包，解压并从解压文件中删除以下两个：
+
+- `browserconfig.xml`
+- `site.webmanifest`
+
+然后复制剩余的图像文件 （ 和 ） 以覆盖 Jekyll 站点目录中的原始文件。如果您的 Jekyll 站点还没有此目录，只需创建一个。`.PNG``.ICO``assets/img/favicons/`
+
+
+
+
+
+
+
 ## 修改 V1-2023-7-31
 
 - 因为上一个模板渲染代码块难以辨认, 使用了另一个模板[vszhub/not-pure-poole: A simple, beautiful, and powerful Jekyll theme for blogs. (github.com)](https://github.com/vszhub/not-pure-poole)
