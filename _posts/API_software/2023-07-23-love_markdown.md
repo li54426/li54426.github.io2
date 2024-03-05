@@ -20,7 +20,9 @@ tags:
 
 
 
+[xlzy520/picgo-plugin-bilibili: 为 PicGo 开发的一款插件，新增了B站图床 图床。 使用用户动态的图片上传API。填写SESSDATA即可，获取方式在下面。 (github.com)](https://github.com/xlzy520/picgo-plugin-bilibili)
 
+- 找`cookie`中的 `SESSDATA` 还有 `bli_jct` 复制即可
 
 
 
