@@ -88,6 +88,7 @@ theme_mode: # [light | dark]
 # e.g. 'https://cdn.com'
 img_cdn: "https://chirpy-img.netlify.app"
 
+#侧边栏上的头像，支持本地或 CORS 资源
 # the avatar on sidebar, support local or CORS resources
 avatar: "/commons/avatar.jpg"
 
@@ -140,7 +141,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: ""
+baseurl: "index"
 
 # ------------ The following options are not recommended to be modified ------------------
 
