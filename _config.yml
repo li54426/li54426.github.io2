@@ -49,7 +49,7 @@ description: 记录我的代码和日常生活 >-  # this means to ignore newlin
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. https://example.com
-favicon: "assets/my/favicon.ico" # the favicon for your site
+favicon: "/assets/my/favicon.ico" # the favicon for your site
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
