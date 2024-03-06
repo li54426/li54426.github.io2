@@ -57,7 +57,7 @@ favicon: "assets/my/favicon.ico" # the favicon for your site
 yat:
   date_format: "%b %d, %Y"
 
-permalink: /:categories/:year/:title.html
+# permalink: /:categories/:year/:title.html
 
 # If you want more debug log, you can set true
 # debug: false
