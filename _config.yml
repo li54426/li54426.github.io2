@@ -1,10 +1,10 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
+title:            li54426 blog
+longtitle:        li54426 blog
 author:           Li HanHan
 email:            sighingnow@gmail.com
 description: >
-  Build Jekyll site with the GitBook style.
+  记录我的 coding 之路
 
 version:          1.0
 gitbook_version:  3.2.3
