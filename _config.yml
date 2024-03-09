@@ -24,8 +24,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: li54426blog
-email: your-email@domain.com
+title: li54426 blog
+email: li54426@126.com
 author: li54426
 
 # Copyright setting
@@ -56,6 +56,7 @@ favicon: "/assets/my/favicon.ico" # the favicon for your site
 yat:
   date_format: "%b %d, %Y"
 
+# 目录组织方式
 permalink: /:categories/:year/:title.html
 
 # If you want more debug log, you can set true
