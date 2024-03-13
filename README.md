@@ -1,3 +1,14 @@
+## 修改 V3 
+
+
+
+#### 主题修改
+
+- [jekyll-theme-yat](https://github.com/jeffreytse/jekyll-theme-yat)
+- 将即开即用
+
+```yml
+```
 
 
 
@@ -8,7 +19,25 @@
 
 
 
-## 修改 V1-2023-7-31
+
+#### 置顶文章
+
+
+
+````
+```
+title: Your Article Title
+top: 1
+```
+
+This is an example to show how to pin an article at top.
+````
+
+
+
+
+
+## 修改 V2-2023-7-31
 
 - 因为上一个模板渲染代码块难以辨认, 使用了另一个模板[vszhub/not-pure-poole: A simple, beautiful, and powerful Jekyll theme for blogs. (github.com)](https://github.com/vszhub/not-pure-poole)
 
